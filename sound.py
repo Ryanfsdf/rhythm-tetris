@@ -12,7 +12,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 48000
 RECORD_DURATION = 500
-NOISE_FLOOR_BASE = 75 #Higher for louder environments.
+NOISE_FLOOR_BASE = 50 #Higher for louder environments.
 
 ampArray = [0,0,0]
 data = ""
@@ -57,6 +57,7 @@ for i in range(5):
     except IOError:
         print("Noise Cancellation Setup Failed")
 floorNoise = floorNoise / 5
+print("Noise Floor is:" + str(floorNoise))
 
 
 print("Starting Data Loop")
@@ -75,6 +76,7 @@ for i in range(0, 48000 / chunk * RECORD_DURATION):
     NOISE_FLOOR_BASE + floorNoise
     if (rms > threshold):
         print("Beat Detected")
+        print(rms)
         fileC = open("SendToC","a")
         fileC.write(str(numBeatTimes) + "\n")
         fileC.close()
