@@ -12,7 +12,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 48000
 RECORD_DURATION = 500
-NOISE_FLOOR_BASE = 50 #Higher for louder environments.
+NOISE_FLOOR_BASE = 100 #Higher for louder environments.
 
 ampArray = [0,0,0]
 data = ""
