@@ -6,11 +6,10 @@ class Graphics {
 private:
 	SDL_Window *window;
 	SDL_Renderer *render;
-	SDL_Texture *display;
 public:
 	Graphics();
 	~Graphics();
 
-	void updateBoard();
-	void closeBoard();
+	void updateScreen();
+	void closeScreen();
 };

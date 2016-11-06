@@ -15,22 +15,16 @@ Graphics::Graphics() {
 
     SDL_SetRenderDrawBlendMode(render, SDL_BLENDMODE_BLEND);
 
-    display = SDL_CreateTexture(render,
-    	SDL_PIXELFORMAT_RGBA8888, 
-    	SDL_TEXTUREACCESS_TARGET, 
-    	WIDTH_PIXEL, 
-    	HEIGHT_PIXEL);
+	SDL_SetRenderDrawColor(render, 255, 0, 0, 255);
 
+	SDL_RenderClear(render);
 
-    SDL_SetRenderTarget(render, display);
 	SDL_RenderPresent(render);
 	
 }
 
-void Graphics::updateBoard() {
+void Graphics::updateScreen() {
 
-    SDL_SetRenderTarget(render, NULL);
-    SDL_RenderCopy(render, display, NULL, NULL);
     
     boxColor(render, 5, 5, 50, 50, 0xFFFFDB7F);
 
@@ -38,7 +32,7 @@ void Graphics::updateBoard() {
     SDL_RenderPresent(render);
 }
 
-void Graphics::closeBoard() {
+void Graphics::closeScreen() {
     
     SDL_DestroyRenderer(render);
     SDL_DestroyWindow(window);

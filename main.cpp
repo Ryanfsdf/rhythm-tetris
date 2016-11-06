@@ -34,7 +34,7 @@ int main() {
             break;
         }
     }
-		testthis->updateBoard();
+		testthis->updateScreen();
 	}
 
 

@@ -3,8 +3,8 @@
 #define PLAY_HEIGHT 20
 #define PLAY_WIDTH 10
 
-#define HEIGHT_PIXEL 800
-#define WIDTH_PIXEL 500
+#define HEIGHT_PIXEL 500
+#define WIDTH_PIXEL 400
 
 
 class Board {
