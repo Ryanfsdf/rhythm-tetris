@@ -15,14 +15,17 @@ Graphics::Graphics() {
 
     SDL_SetRenderDrawBlendMode(render, SDL_BLENDMODE_BLEND);
 
-	SDL_SetRenderDrawColor(render, 255, 0, 0, 255);
+	SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
 
 	SDL_RenderClear(render);
 
 	SDL_RenderPresent(render);
-	
 }
 
+Graphics::~Graphics() {}
+
+
+int test = 0;
 void Graphics::updateScreen() {
 
     
@@ -30,14 +33,24 @@ void Graphics::updateScreen() {
 
 
     SDL_RenderPresent(render);
+
+    boxColor(render, 50, 50 + test , 150 , 150 + test, 0xAAFFDB7F);
+
+    test ++;
+
+
+    SDL_RenderPresent(render);
+
+    SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
+	SDL_RenderClear(render);
+
+
+	SDL_RenderPresent(render);
 }
 
 void Graphics::closeScreen() {
-    
+	//Shut everything down
     SDL_DestroyRenderer(render);
     SDL_DestroyWindow(window);
-    TTF_Quit();
-
-    // Shut down SDL
     SDL_Quit();
 }

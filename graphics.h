@@ -1,5 +1,7 @@
+#ifndef GRAPHICS_H
+#define GRAPHICS_H
+
 #include "SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
 #include "SDL2/SDL2_gfxPrimitives.h"
 
 class Graphics {
@@ -13,3 +15,5 @@ public:
 	void updateScreen();
 	void closeScreen();
 };
+
+#endif
