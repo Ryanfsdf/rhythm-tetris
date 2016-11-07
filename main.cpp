@@ -8,12 +8,12 @@ using namespace std;
 
 int main() {
 	//Loads window and graphics
-	Graphics testthis;
+	Graphics screen;
 
 	while(1) {
 		SDL_Delay(16);
 		checkEvent();
-		testthis.updateScreen();
+		screen.updateScreen();
 	}
 
 

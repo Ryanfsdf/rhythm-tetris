@@ -10,8 +10,8 @@
 
 class Board {
 private:
-	int board[10][22];
-	int currentPiece[5][5];
+	int board[PLAY_HEIGHT][PLAY_WIDTH];
+	Piece * currentPiece;
 public:
 	Board();
 	~Board();

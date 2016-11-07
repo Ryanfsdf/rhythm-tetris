@@ -2,7 +2,7 @@
 #include <algorithm>
 
 Piece::Piece(Piece_Shapes piece) {
-	const char (*tempPiece)[5][5];
+	const char (*tempPiece)[PIECE_SIZE][PIECE_SIZE];
 
 	switch (piece) {
 		case S_SHAPE:
@@ -37,8 +37,8 @@ Piece::Piece(Piece_Shapes piece) {
 		break;
 	}
 
-	for (int i = 0; i < 5; ++i) {
-		for (int j = 0; j < 5; ++j){
+	for (int i = 0; i < PIECE_SIZE; ++i) {
+		for (int j = 0; j < PIECE_SIZE; ++j){
 			tetrisPiece[i][j] = (*tempPiece)[i][j];
 		}
 	}
@@ -47,13 +47,13 @@ Piece::Piece(Piece_Shapes piece) {
 Piece::~Piece(){}
 
 void Piece::rotatePiece() {
-	for (int i = 0; i < 5; ++i){
-	    for (int j = 0; j < 2; ++j){
-	        std::swap(tetrisPiece[i][j], tetrisPiece[i][5-1-j]);
+	for (int i = 0; i < PIECE_SIZE; ++i){
+	    for (int j = 0; j < PIECE_SIZE/2; ++j){
+	        std::swap(tetrisPiece[i][j], tetrisPiece[i][PIECE_SIZE-1-j]);
 	    }
 	}
 }
 
-char (* Piece::getPiece())[5] {
+char (* Piece::getPiece())[PIECE_SIZE] {
 	return tetrisPiece;
 }
