@@ -1,9 +1,9 @@
 #include "board.h"
 
 Board::Board() {
-	for (int i; i < PLAY_HEIGHT; ++i) {
+	for (int y; y < PLAY_HEIGHT; ++y) {
 		for (int x; x < PLAY_WIDTH; ++x) {
-			board[i][x] = 0;
+			board[y][x] = 0;
 		}
 	}
 
@@ -34,9 +34,15 @@ void Board::dropPiece() {
 }
 
 void Board::updateBoard() {
-	for (int i = 0; i < PLAY_HEIGHT; ++i) {
+	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
-			
+			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
+				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
+				if ((currentPiece->getPiece())
+					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
+					board[y][x] = 2;
+				}
+			}
 		}
 	}
 
