@@ -1,6 +1,7 @@
 #ifndef PIECE_H
 #define PIECE_H
 
+//must change the arrays if you change the piece size
 #define PIECE_SIZE 5
 
 typedef enum {

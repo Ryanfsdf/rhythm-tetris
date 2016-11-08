@@ -10,15 +10,20 @@
 
 class Board {
 private:
-	int board[PLAY_HEIGHT][PLAY_WIDTH];
+	char board[PLAY_HEIGHT][PLAY_WIDTH];
 	Piece * currentPiece;
+
+	// (0,0) is top left corner
+	int pieceXPosition;
+	int pieceYPosition;
+
 public:
 	Board();
 	~Board();
 
 	void makePiece(Piece_Shapes piece);
 	void dropPiece();
-
+	void updateBoard();
 	void checkField();
 
 };
