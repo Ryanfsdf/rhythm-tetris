@@ -10,8 +10,6 @@
 
 class Board {
 private:
-	//Active blocks will have a value of 2 while stale blocks will
-	// have a value of 1. Empty will be 0
 	char board[PLAY_HEIGHT][PLAY_WIDTH];
 	Piece * currentPiece;
 
@@ -27,7 +25,7 @@ public:
 	void makePiece();
 	void makePiece(Piece_Shapes piece);
 	void dropPiece();
-	void updateBoard();
+	void solidifyBoard();
 	bool isValid();
 
 };

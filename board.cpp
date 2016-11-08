@@ -24,8 +24,8 @@ void Board::makePiece() {
 	if (currentPiece != 0) {
 		delete currentPiece;
 	}
-
-	currentPiece =  new Piece();
+	//MAKE THIS RANDOM : TODO
+	currentPiece =  new Piece(S_SHAPE);
 }
 
 void Board::makePiece(Piece_Shapes piece) {
@@ -39,22 +39,20 @@ void Board::makePiece(Piece_Shapes piece) {
 
 void Board::dropPiece() {
 	++pieceYPosition;
-	if (isValid()) {
-		updateBoard();
-	} else {
-		//solidifyBoard();
+	if (!isValid()) {
+		solidifyBoard();
 		makePiece();
 	}
 }
-
-void Board::updateBoard() {
+void Board::solidifyBoard() {
 	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
-				if ((currentPiece->getPiece())
+				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
+					(currentPiece->getPiece())
 					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
-					board[y][x] = 2;
+					board[y][x] = 1;
 				}
 			}
 		}
@@ -64,7 +62,17 @@ void Board::updateBoard() {
 bool Board::isValid() {
 	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
+			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
+				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
+				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
+					(currentPiece->getPiece())
+					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
+					if (board[y][x] == 1) {
+						return false;
+					}
+				}
+			}
 		}
 	}
-	return false;
+	return true;
 }
