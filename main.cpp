@@ -14,7 +14,7 @@ int main() {
 	while(1) {
 		SDL_Delay(16);
 		checkEvent();
-		screen->updateScreen();
+		screen->updateScreen(tetrisBoard);
 	}
 
 

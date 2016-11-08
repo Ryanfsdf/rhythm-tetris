@@ -13,7 +13,7 @@ public:
 	Graphics();
 	~Graphics();
 
-	void updateScreen(/*Board * tetrisBoard*/);
+	void updateScreen(Board * tetrisBoard);
 };
 
 #endif
