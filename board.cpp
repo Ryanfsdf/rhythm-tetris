@@ -35,7 +35,7 @@ void Board::makePiece() {
 		delete currentPiece;
 	}
 
-	pieceXPosition = PLAY_WIDTH/2;
+	pieceXPosition = PLAY_WIDTH/2 - 1;
 	pieceYPosition = 2;
 
 	//MAKE THIS RANDOM : TODO

@@ -14,49 +14,49 @@ typedef enum {
 	RL_SHAPE
 } Piece_Shapes;
 
-const char s_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int s_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,0,0,0},
 	{0,0,1,0,0},
 	{0,0,1,1,0},
 	{0,0,0,1,0},
 	{0,0,0,0,0}
 };
-const char z_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int z_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,0,0,0},
 	{0,0,0,1,0},
 	{0,0,1,1,0},
 	{0,0,1,0,0},
 	{0,0,0,0,0}
 };
-const char li_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int li_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,0,0,0}
 };
-const char t_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int t_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,0,0,0},
 	{0,0,1,0,0},
 	{0,1,1,1,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
-const char sq_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int sq_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,0,0,0},
 	{0,0,1,1,0},
 	{0,0,1,1,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
-const char l_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int l_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,0,1,1,0},
 	{0,0,0,0,0},
 	{0,0,0,0,0}
 };
-const char rl_piece[PIECE_SIZE][PIECE_SIZE] = {
+const int rl_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,1,0,0},
 	{0,0,1,0,0},
 	{0,1,1,0,0},
@@ -66,13 +66,13 @@ const char rl_piece[PIECE_SIZE][PIECE_SIZE] = {
 
 class Piece {
 private:
-	char tetrisPiece[PIECE_SIZE][PIECE_SIZE];
+	int tetrisPiece[PIECE_SIZE][PIECE_SIZE];
 public:
 	Piece(Piece_Shapes piece);
 	~Piece();
 
 	void rotatePiece();
-	char getPieceAt(int x, int y);
+	int getPieceAt(int x, int y);
 };
 
 #endif

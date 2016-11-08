@@ -2,7 +2,7 @@
 #include <algorithm>
 
 Piece::Piece(Piece_Shapes piece) {
-	const char (*tempPiece)[PIECE_SIZE][PIECE_SIZE];
+	const int (*tempPiece)[PIECE_SIZE][PIECE_SIZE];
 
 	switch (piece) {
 		case S_SHAPE:
@@ -54,6 +54,6 @@ void Piece::rotatePiece() {
 	}
 }
 
-char Piece::getPieceAt(int x, int y) {
+int Piece::getPieceAt(int x, int y) {
 	return tetrisPiece[y][x];
 }
