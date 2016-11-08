@@ -11,7 +11,7 @@
 class Board {
 private:
 	char board[PLAY_HEIGHT][PLAY_WIDTH];
-	Piece * currentPiece;
+	Piece * currentPiece = 0;
 
 	// (0,0) is top left corner
 	int pieceXPosition;
