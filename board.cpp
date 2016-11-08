@@ -17,7 +17,7 @@ Board::~Board() {
 	}
 }
 
-int Board::getBoardAt(int x, int y) {
+char Board::getBoardAt(int x, int y) {
 	return board[y][x];
 }
 
@@ -79,8 +79,7 @@ void Board::updateBoard() {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
 				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPiece())
-					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
+					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)){
 					board[y][x] = 2;
 				}
 			}
@@ -94,8 +93,7 @@ void Board::solidifyBoard() {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
 				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPiece())
-					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
+					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)){
 					board[y][x] = 1;
 				}
 			}
@@ -109,8 +107,7 @@ bool Board::isValid() {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
 				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPiece())
-					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
+					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)) {
 					if (board[y][x] == 1) {
 						return false;
 					}

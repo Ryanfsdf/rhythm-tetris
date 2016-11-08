@@ -72,7 +72,7 @@ public:
 	~Piece();
 
 	void rotatePiece();
-	char (* getPiece())[PIECE_SIZE];
+	char getPieceAt(int x, int y);
 };
 
 #endif

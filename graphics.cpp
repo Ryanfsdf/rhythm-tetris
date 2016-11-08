@@ -40,15 +40,18 @@ void Graphics::updateScreen(Board * tetrisBoard) {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
 				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPiece())
-					[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
-					boxColor(render, 5, 5, 50, 50, 0xFFFFDB7F);
+					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)) {
+					std::cout << "HIIII";
+					boxColor(render, WIDTH_PIXEL/PLAY_WIDTH * x, HEIGHT_PIXEL/PLAY_HEIGHT * y,
+					WIDTH_PIXEL/PLAY_WIDTH * (x + 1), HEIGHT_PIXEL/PLAY_HEIGHT * (y + 1), 0xFFFFDB7F);
+
 				}
 			}
 		}
 	}
 
-    boxColor(render, 5, 5, 50, 50, 0xFFFFDB7F);
+//x,y    x, y
+    boxColor(render, 5, 45, 50, 50, 0xFFFFFFFF);
 
 
     SDL_RenderPresent(render);
@@ -58,9 +61,4 @@ void Graphics::updateScreen(Board * tetrisBoard) {
 
     SDL_RenderPresent(render);
 
-    SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
-	SDL_RenderClear(render);
-
-
-	SDL_RenderPresent(render);
 }

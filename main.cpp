@@ -12,7 +12,7 @@ int main() {
 	Board * tetrisBoard = new Board;
 
 	while(1) {
-		SDL_Delay(16);
+		SDL_Delay(100);
 		checkEvent();
 		screen->updateScreen(tetrisBoard);
 	}

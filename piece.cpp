@@ -54,6 +54,6 @@ void Piece::rotatePiece() {
 	}
 }
 
-char (* Piece::getPiece())[PIECE_SIZE] {
-	return tetrisPiece;
+char Piece::getPieceAt(int x, int y) {
+	return tetrisPiece[y][x];
 }

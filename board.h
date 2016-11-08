@@ -21,7 +21,7 @@ public:
 	Board();
 	~Board();
 
-	int getBoardAt(int x, int y);
+	char getBoardAt(int x, int y);
 	int getPieceX();
 	int getPieceY();
 	//no argument makes random piece
