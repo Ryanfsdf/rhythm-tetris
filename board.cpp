@@ -9,6 +9,7 @@ Board::Board() {
 
 	pieceXPosition = PLAY_WIDTH/2;
 	pieceYPosition = 2;
+	makePiece();
 }
 
 Board::~Board() {
@@ -16,6 +17,15 @@ Board::~Board() {
 	if (currentPiece != 0) {
 		delete currentPiece;
 	}
+}
+
+void Board::makePiece() {
+	//NULL
+	if (currentPiece != 0) {
+		delete currentPiece;
+	}
+
+	currentPiece =  new Piece();
 }
 
 void Board::makePiece(Piece_Shapes piece) {
@@ -29,8 +39,12 @@ void Board::makePiece(Piece_Shapes piece) {
 
 void Board::dropPiece() {
 	++pieceYPosition;
-	updateBoard();
-	checkField(); 
+	if (isValid()) {
+		updateBoard();
+	} else {
+		//solidifyBoard();
+		makePiece();
+	}
 }
 
 void Board::updateBoard() {
@@ -45,9 +59,12 @@ void Board::updateBoard() {
 			}
 		}
 	}
-
 }
 
-void Board::checkField() {
-	//make new piece ff checkField shows that piece has dropped fully	
+bool Board::isValid() {
+	for (int y = 0; y < PLAY_HEIGHT; ++y) {
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
+		}
+	}
+	return false;
 }

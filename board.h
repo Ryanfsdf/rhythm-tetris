@@ -23,9 +23,11 @@ public:
 	Board();
 	~Board();
 
+	//no argument makes random piece
+	void makePiece();
 	void makePiece(Piece_Shapes piece);
 	void dropPiece();
 	void updateBoard();
-	void checkField();
+	bool isValid();
 
 };

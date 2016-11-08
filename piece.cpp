@@ -1,6 +1,7 @@
 #include "piece.h"
 #include <algorithm>
 
+Piece::Piece(){}
 Piece::Piece(Piece_Shapes piece) {
 	const char (*tempPiece)[PIECE_SIZE][PIECE_SIZE];
 

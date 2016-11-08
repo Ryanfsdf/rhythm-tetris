@@ -68,6 +68,7 @@ class Piece {
 private:
 	char tetrisPiece[PIECE_SIZE][PIECE_SIZE];
 public:
+	Piece();
 	Piece(Piece_Shapes piece);
 	~Piece();
 
