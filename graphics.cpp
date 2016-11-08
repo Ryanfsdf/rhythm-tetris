@@ -1,5 +1,5 @@
 #include "graphics.h"
-#include "board.h"
+#include <iostream>
 
 Graphics::Graphics() {
     window = SDL_CreateWindow(PROGRAM_TITLE,
@@ -22,21 +22,45 @@ Graphics::Graphics() {
 	SDL_RenderPresent(render);
 }
 
-Graphics::~Graphics() {}
+Graphics::~Graphics() {
+	SDL_DestroyRenderer(render);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+#define test 0
+void Graphics::updateScreen(/*Board * tetrisBoard*/) {
+	/*Piece * currentPiece = tetrisBoard->getPiece();
+	int pieceXPosition = tetrisBoard->getPieceX();
+	int pieceYPosition = tetrisBoard->getPieceY();
 
 
-int test = 0;
-void Graphics::updateScreen() {
+//Segfault
+    for (int y = 0; y < PLAY_HEIGHT; ++y) {
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
+			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
+				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
+				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
+					((pieceYPosition - y - 2) <= 4) && ((pieceXPosition - x - 2) <= 4)) {
+					std::cout << (pieceYPosition - y - 2) << (pieceYPosition - y - 2);
+					if  (currentPiece->getPiece()
+							[pieceYPosition - y - 2][pieceXPosition - x - 2] == 1) {
 
-    
+						boxColor(render, 5, 5, 50, 50, 0xFFFFDB7F);
+						
+					}
+				}
+					
+			}
+		}
+	}*/
+
     boxColor(render, 5, 5, 50, 50, 0xFFFFDB7F);
 
 
     SDL_RenderPresent(render);
 
     boxColor(render, 50, 50 + test , 150 , 150 + test, 0xAAFFDB7F);
-
-    test ++;
 
 
     SDL_RenderPresent(render);
@@ -46,11 +70,4 @@ void Graphics::updateScreen() {
 
 
 	SDL_RenderPresent(render);
-}
-
-void Graphics::closeScreen() {
-	//Shut everything down
-    SDL_DestroyRenderer(render);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
 }

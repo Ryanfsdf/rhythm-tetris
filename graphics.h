@@ -1,6 +1,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
+#include "board.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL2_gfxPrimitives.h"
 
@@ -12,8 +13,7 @@ public:
 	Graphics();
 	~Graphics();
 
-	void updateScreen();
-	void closeScreen();
+	void updateScreen(/*Board * tetrisBoard*/);
 };
 
 #endif

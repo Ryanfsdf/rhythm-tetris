@@ -5,8 +5,8 @@
 #define PLAY_HEIGHT 20
 #define PLAY_WIDTH 10
 
-#define HEIGHT_PIXEL 500
-#define WIDTH_PIXEL 400
+#define HEIGHT_PIXEL 600
+#define WIDTH_PIXEL 300
 
 class Board {
 private:
@@ -21,10 +21,15 @@ public:
 	Board();
 	~Board();
 
+	int getBoardAt(int x, int y);
+	int getPieceX();
+	int getPieceY();
 	//no argument makes random piece
 	void makePiece();
 	void makePiece(Piece_Shapes piece);
+	Piece * getPiece();
 	void dropPiece();
+	void updateBoard();
 	void solidifyBoard();
 	bool isValid();
 

@@ -8,12 +8,13 @@ using namespace std;
 
 int main() {
 	//Loads window and graphics
-	Graphics screen;
+	Graphics * screen = new Graphics;
+	//Board * tetrisBoard = new Board;
 
 	while(1) {
 		SDL_Delay(16);
 		checkEvent();
-		screen.updateScreen();
+		screen->updateScreen();
 	}
 
 
