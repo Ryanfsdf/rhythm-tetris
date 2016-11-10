@@ -2,12 +2,9 @@
 #include <iostream>
 
 Board::Board() {
-	int count = 0;
 	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			board[y][x] = 0;
-			std::cout << getBoardAt(x,y);
-			++count;
 		}
 	}
 
