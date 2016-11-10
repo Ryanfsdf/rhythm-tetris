@@ -28,7 +28,6 @@ Graphics::~Graphics() {
     SDL_Quit();
 }
 
-#define test 0
 void Graphics::updateScreen(Board * tetrisBoard) {
     for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {

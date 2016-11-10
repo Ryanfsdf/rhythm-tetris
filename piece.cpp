@@ -1,5 +1,4 @@
 #include "piece.h"
-#include <algorithm>
 
 Piece::Piece(Piece_Shapes piece) {
 	const int (*tempPiece)[PIECE_SIZE][PIECE_SIZE];
@@ -47,11 +46,22 @@ Piece::Piece(Piece_Shapes piece) {
 Piece::~Piece(){}
 
 void Piece::rotatePiece() {
-	for (int i = 0; i < PIECE_SIZE; ++i){
-	    for (int j = 0; j < PIECE_SIZE/2; ++j){
-	        std::swap(tetrisPiece[i][j], tetrisPiece[i][PIECE_SIZE-1-j]);
-	    }
+	for(int i = 0; i < PIECE_SIZE / 2; i++) {
+		for(int j = 0; j < (PIECE_SIZE + 1) / 2; j++) {
+			rollHelper(tetrisPiece[i][j], tetrisPiece[PIECE_SIZE - 1 - j][i], 
+				tetrisPiece[PIECE_SIZE - 1 - i][PIECE_SIZE - 1 - j], 
+				tetrisPiece[j][PIECE_SIZE - 1 - i]);
+		}
 	}
+}
+
+void Piece::rollHelper(int &a, int &b, int &c, int &d)
+{
+   int temp = a;
+   a = b;
+   b = c;
+   c = d;
+   d = temp;
 }
 
 int Piece::getPieceAt(int x, int y) {

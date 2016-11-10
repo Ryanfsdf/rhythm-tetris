@@ -41,7 +41,7 @@ void Board::makePiece() {
 	pieceYPosition = 2;
 
 	//MAKE THIS RANDOM : TODO
-	currentPiece =  new Piece(S_SHAPE);
+	currentPiece =  new Piece(T_SHAPE);
 }
 
 void Board::makePiece(Piece_Shapes piece) {
@@ -58,11 +58,20 @@ void Board::makePiece(Piece_Shapes piece) {
 
 void Board::dropPiece() {
 	++pieceYPosition;
-	/*if (!isValid()) {
+	if (!isValid()) {
+		--pieceYPosition;
+		updateBoard();
 		solidifyBoard();
 		makePiece();
-	}*/
+		return;
+	}
 	updateBoard();
+}
+
+void Board::rotatePiece() {
+	currentPiece->rotatePiece();
+	updateBoard();
+	//more work needs to be done here
 }
 
 void Board::updateBoard() {
@@ -93,8 +102,10 @@ void Board::solidifyBoard() {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
-				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)){
+
+				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
+					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4) &&
+					(currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
 					board[y][x] = 1;
 				}
 			}
@@ -103,16 +114,27 @@ void Board::solidifyBoard() {
 }
 
 bool Board::isValid() {
-	for (int y = 0; y < PLAY_HEIGHT; ++y) {
-		for (int x = 0; x < PLAY_WIDTH; ++x) {
+	//Boundaries are extended to check out-of-board conditions
+	for (int y = 0; y < PLAY_HEIGHT + 1; ++y) {
+		for (int x = -1; x < PLAY_WIDTH + 1; ++x) {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
-				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)) {
-					if (board[y][x] == 1) {
-						return false;
+
+				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
+					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4)) {
+					if ((currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
+						if (board[y][x] == 1) {
+							return false;
+						}
+						std::cout << "X: " << x << " || Y: " << y << "\n";
+						if (y >= PLAY_HEIGHT) {
+							return false;
+						}
+						if (x >= PLAY_WIDTH || x < 0) {
+							return false;
+						}
 					}
-				}
+				}	
 			}
 		}
 	}

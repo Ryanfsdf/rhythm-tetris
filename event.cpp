@@ -1,7 +1,6 @@
 #include "event.h"
-#include "graphics.h"
 
-void checkEvent() {
+void checkEvent(Board * tetrisBoard) {
 	SDL_Event event;
 
 	while (SDL_PollEvent(&event)) {
@@ -14,7 +13,7 @@ void checkEvent() {
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_UP:
-						//
+						tetrisBoard->rotatePiece();
 					break;
 
 					case SDLK_DOWN:

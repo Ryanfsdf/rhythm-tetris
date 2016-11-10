@@ -67,6 +67,8 @@ const int rl_piece[PIECE_SIZE][PIECE_SIZE] = {
 class Piece {
 private:
 	int tetrisPiece[PIECE_SIZE][PIECE_SIZE];
+	void rollHelper (int &a, int &b, int &c, int &d);
+	
 public:
 	Piece(Piece_Shapes piece);
 	~Piece();

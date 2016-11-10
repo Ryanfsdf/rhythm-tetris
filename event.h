@@ -1,6 +1,8 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-void checkEvent();
+#include "graphics.h"
+
+void checkEvent(Board * tetrisBoard);
 
 #endif
