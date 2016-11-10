@@ -10,7 +10,7 @@
 
 class Board {
 private:
-	char board[PLAY_HEIGHT][PLAY_WIDTH];
+	int board[PLAY_HEIGHT][PLAY_WIDTH];
 	Piece * currentPiece = 0;
 
 	// (0,0) is top left corner
@@ -21,7 +21,7 @@ public:
 	Board();
 	~Board();
 
-	char getBoardAt(int x, int y);
+	int getBoardAt(int x, int y);
 	int getPieceX();
 	int getPieceY();
 	//no argument makes random piece

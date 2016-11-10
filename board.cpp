@@ -1,13 +1,18 @@
 #include "board.h"
+#include <iostream>
 
 Board::Board() {
-	for (int y; y < PLAY_HEIGHT; ++y) {
-		for (int x; x < PLAY_WIDTH; ++x) {
+	int count = 0;
+	for (int y = 0; y < PLAY_HEIGHT; ++y) {
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			board[y][x] = 0;
+			std::cout << getBoardAt(x,y);
+			++count;
 		}
 	}
 
 	makePiece();
+	updateBoard();
 }
 
 Board::~Board() {
@@ -17,7 +22,7 @@ Board::~Board() {
 	}
 }
 
-char Board::getBoardAt(int x, int y) {
+int Board::getBoardAt(int x, int y) {
 	return board[y][x];
 }
 
@@ -60,10 +65,10 @@ Piece * Board::getPiece() {
 
 void Board::dropPiece() {
 	++pieceYPosition;
-	if (!isValid()) {
+	/*if (!isValid()) {
 		solidifyBoard();
 		makePiece();
-	}
+	}*/
 }
 
 void Board::updateBoard() {
@@ -78,8 +83,10 @@ void Board::updateBoard() {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
 				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
-				if (((pieceYPosition - y - 2) >= 0) && ((pieceXPosition - x - 2) >= 0) &&
-					(currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 1)){
+
+				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
+					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4) &&
+					(currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
 					board[y][x] = 2;
 				}
 			}

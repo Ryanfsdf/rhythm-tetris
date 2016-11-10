@@ -33,28 +33,30 @@ void Graphics::updateScreen(Board * tetrisBoard) {
 	Piece * currentPiece = tetrisBoard->getPiece();
 	int pieceXPosition = tetrisBoard->getPieceX();
 	int pieceYPosition = tetrisBoard->getPieceY();
-
+	int count = 0;
 
     for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
-			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
-				((y >= pieceYPosition - 2) && (y <= pieceYPosition + 2))) {
-
-				std::cout << (currentPiece->getPieceAt(pieceYPosition - y - 2, pieceXPosition - x - 2) == 0);
-				std::cout << "X: " << (x + 2 - pieceXPosition) << "|| Y: " << (y + 2 - pieceYPosition) << "\n";
-
-				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
-					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4) &&
-					(currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
-					boxColor(render, WIDTH_PIXEL/PLAY_WIDTH * x, HEIGHT_PIXEL/PLAY_HEIGHT * y,
+			//std::cout << tetrisBoard->getBoardAt(x,y);
+			if (tetrisBoard->getBoardAt(x,y) == 2) {
+				boxColor(render, WIDTH_PIXEL/PLAY_WIDTH * x, HEIGHT_PIXEL/PLAY_HEIGHT * y, 
 					WIDTH_PIXEL/PLAY_WIDTH * (x + 1), HEIGHT_PIXEL/PLAY_HEIGHT * (y + 1), 0xFFFFDB7F);
-
-				}
+				++count;
+			}
+			else if (tetrisBoard->getBoardAt(x,y) == 1) {
+				boxColor(render, WIDTH_PIXEL/PLAY_WIDTH * x, HEIGHT_PIXEL/PLAY_HEIGHT * y,
+					WIDTH_PIXEL/PLAY_WIDTH * (x + 1), HEIGHT_PIXEL/PLAY_HEIGHT * (y + 1), 0x00000000);
+				++count;
+			}
+			else {
+				++count;
+				//boxColor(render, WIDTH_PIXEL/PLAY_WIDTH * x, HEIGHT_PIXEL/PLAY_HEIGHT * y,
+				//	WIDTH_PIXEL/PLAY_WIDTH * (x + 1), HEIGHT_PIXEL/PLAY_HEIGHT * (y + 1), 0xFFFFFFFF);
 			}
 		}
 	}
 
-	std::cout << "****************************\n";
+	//std::cout << "****************************" << count << "\n";
     
     SDL_RenderPresent(render);
 
