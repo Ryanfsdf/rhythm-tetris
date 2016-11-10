@@ -17,7 +17,7 @@ void checkEvent(Board * tetrisBoard) {
 					break;
 
 					case SDLK_DOWN:
-						//
+						tetrisBoard->dropPiece();
 					break;
 
 					case SDLK_LEFT:

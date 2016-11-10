@@ -13,6 +13,7 @@ int main() {
 
 	while(1) {
 		int loop = 0;
+		//Change loop to determine how fast pieces drop
 		while(loop < 15) {
 			SDL_Delay(50);
 			checkEvent(tetrisBoard);

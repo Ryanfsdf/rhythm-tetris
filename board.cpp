@@ -70,17 +70,28 @@ void Board::dropPiece() {
 
 void Board::rotatePiece() {
 	currentPiece->rotatePiece();
+	while (!isValid()) {
+		currentPiece->rotatePiece();
+	}
 	updateBoard();
 	//more work needs to be done here
 }
 
 void Board::movePieceLeft() {
 	--pieceXPosition;
+	if (!isValid()) {
+		++pieceXPosition;
+		return;
+	}
 	updateBoard();
 }
 	
 void Board::movePieceRight() {
 	++pieceXPosition;
+	if (!isValid()) {
+		--pieceXPosition;
+		return;
+	}
 	updateBoard();
 }
 
@@ -136,7 +147,7 @@ bool Board::isValid() {
 						if (board[y][x] == 1) {
 							return false;
 						}
-						std::cout << "X: " << x << " || Y: " << y << "\n";
+						//std::cout << "X: " << x << " || Y: " << y << "\n";
 						if (y >= PLAY_HEIGHT) {
 							return false;
 						}
