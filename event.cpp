@@ -21,11 +21,11 @@ void checkEvent(Board * tetrisBoard) {
 					break;
 
 					case SDLK_LEFT:
-						//
+						tetrisBoard->movePieceLeft();
 					break;
 
 					case SDLK_RIGHT:
-						//
+						tetrisBoard->movePieceRight();
 					break;
 
 					case SDLK_SPACE:

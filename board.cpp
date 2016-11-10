@@ -74,6 +74,16 @@ void Board::rotatePiece() {
 	//more work needs to be done here
 }
 
+void Board::movePieceLeft() {
+	--pieceXPosition;
+	updateBoard();
+}
+	
+void Board::movePieceRight() {
+	++pieceXPosition;
+	updateBoard();
+}
+
 void Board::updateBoard() {
 	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {

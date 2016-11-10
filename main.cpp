@@ -12,13 +12,13 @@ int main() {
 	Board * tetrisBoard = new Board;
 
 	while(1) {
-		SDL_Delay(1000);
-
+		int loop = 0;
+		while(loop < 15) {
+			SDL_Delay(50);
+			checkEvent(tetrisBoard);
+			screen->updateScreen(tetrisBoard);
+			++loop;
+		}
 		tetrisBoard->dropPiece();
-		checkEvent(tetrisBoard);
-		screen->updateScreen(tetrisBoard);
-
 	}
-
-
 }

@@ -29,6 +29,8 @@ public:
 	void makePiece(Piece_Shapes piece);
 	void dropPiece();
 	void rotatePiece();
+	void movePieceLeft();
+	void movePieceRight();
 	void updateBoard();
 	void solidifyBoard();
 	bool isValid();
