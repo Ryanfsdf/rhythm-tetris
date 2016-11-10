@@ -4,7 +4,7 @@
 //must change the arrays if you change the piece size
 #define PIECE_SIZE 5
 
-typedef enum {
+enum Piece_Shapes {
 	S_SHAPE,
 	Z_SHAPE,
 	LI_SHAPE,
@@ -12,7 +12,7 @@ typedef enum {
 	SQ_SHAPE,
 	L_SHAPE,
 	RL_SHAPE
-} Piece_Shapes;
+};
 
 const int s_piece[PIECE_SIZE][PIECE_SIZE] = {
 	{0,0,0,0,0},
@@ -68,7 +68,7 @@ class Piece {
 private:
 	int tetrisPiece[PIECE_SIZE][PIECE_SIZE];
 	void rollHelper (int &a, int &b, int &c, int &d);
-	
+
 public:
 	Piece(Piece_Shapes piece);
 	~Piece();

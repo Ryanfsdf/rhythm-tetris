@@ -1,4 +1,6 @@
 #include "board.h"
+
+#include <stdlib.h>
 #include <iostream>
 
 Board::Board() {
@@ -40,8 +42,7 @@ void Board::makePiece() {
 	pieceXPosition = PLAY_WIDTH/2;
 	pieceYPosition = 2;
 
-	//MAKE THIS RANDOM : TODO
-	currentPiece =  new Piece(T_SHAPE);
+	currentPiece =  new Piece(Piece_Shapes(rand() % 8));
 }
 
 void Board::makePiece(Piece_Shapes piece) {
