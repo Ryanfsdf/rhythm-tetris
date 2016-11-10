@@ -29,7 +29,7 @@ void checkEvent(Board * tetrisBoard) {
 					break;
 
 					case SDLK_SPACE:
-						//
+						tetrisBoard->dropPieceFull();
 					break;
 
 					case SDLK_LSHIFT:

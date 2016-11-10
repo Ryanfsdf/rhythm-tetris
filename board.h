@@ -28,6 +28,7 @@ public:
 	void makePiece();
 	void makePiece(Piece_Shapes piece);
 	void dropPiece();
+	void dropPieceFull();
 	void rotatePiece();
 	void movePieceLeft();
 	void movePieceRight();

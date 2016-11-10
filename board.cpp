@@ -42,7 +42,7 @@ void Board::makePiece() {
 	pieceXPosition = PLAY_WIDTH/2;
 	pieceYPosition = 2;
 
-	currentPiece =  new Piece(Piece_Shapes(rand() % 8));
+	currentPiece =  new Piece(Piece_Shapes(rand() % 7));
 }
 
 void Board::makePiece(Piece_Shapes piece) {
@@ -61,13 +61,27 @@ void Board::dropPiece() {
 	++pieceYPosition;
 	if (!isValid()) {
 		--pieceYPosition;
-		updateBoard();
 		solidifyBoard();
 		removeFullLines();
 		makePiece();
+		updateBoard();
 		return;
 	}
 	updateBoard();
+}
+
+void Board::dropPieceFull() {
+	while (1) {
+		++pieceYPosition;
+		if (!isValid()) {
+			--pieceYPosition;
+			solidifyBoard();
+			removeFullLines();
+			makePiece();
+			updateBoard();
+			return;
+		}
+	}
 }
 
 void Board::rotatePiece() {
@@ -121,6 +135,13 @@ void Board::updateBoard() {
 }
 
 void Board::solidifyBoard() {
+	for (int y = 0; y < PLAY_HEIGHT; ++y) {
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
+			if (board[y][x] == 2) {
+				board[y][x] = 0;
+			}
+		}
+	}
 	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			if (((x >= pieceXPosition - 2) && (x <= pieceXPosition + 2)) &&
