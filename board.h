@@ -34,5 +34,7 @@ public:
 	void updateBoard();
 	void solidifyBoard();
 	bool isValid();
+	void removeLine(int lineNum);
+	int removeFullLines();
 
 };

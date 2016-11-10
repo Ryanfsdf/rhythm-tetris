@@ -37,7 +37,7 @@ void Board::makePiece() {
 		delete currentPiece;
 	}
 
-	pieceXPosition = PLAY_WIDTH/2 - 1;
+	pieceXPosition = PLAY_WIDTH/2;
 	pieceYPosition = 2;
 
 	//MAKE THIS RANDOM : TODO
@@ -62,6 +62,7 @@ void Board::dropPiece() {
 		--pieceYPosition;
 		updateBoard();
 		solidifyBoard();
+		removeFullLines();
 		makePiece();
 		return;
 	}
@@ -126,7 +127,8 @@ void Board::solidifyBoard() {
 
 				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
 					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4) &&
-					(currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
+					(currentPiece->getPieceAt(x + 2 - pieceXPosition, 
+						y + 2 - pieceYPosition) == 1)) {
 					board[y][x] = 1;
 				}
 			}
@@ -143,7 +145,8 @@ bool Board::isValid() {
 
 				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
 					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4)) {
-					if ((currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
+					if ((currentPiece->getPieceAt(x + 2 - pieceXPosition, 
+						y + 2 - pieceYPosition) == 1)) {
 						if (board[y][x] == 1) {
 							return false;
 						}
@@ -160,4 +163,30 @@ bool Board::isValid() {
 		}
 	}
 	return true;
+}
+
+void Board::removeLine(int lineNum) {
+	for (int y = lineNum - 1; y >= 0; y--) {
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
+			board[y+1][x] = board[y][x];
+		}
+	}
+
+}
+
+int Board::removeFullLines() {
+	int numLines = 0;
+	for (int y = 0; y < PLAY_HEIGHT; y++) {
+		int horizonalCount = 0;
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
+			if (board[y][x] == 1)
+			++horizonalCount;
+		}
+		if (horizonalCount >= PLAY_WIDTH) {
+			removeLine(y);
+			++numLines; 
+		}
+	}
+	//std::cout << "Num Lines Removed: " << numLines << "\n";
+	return numLines;
 }
