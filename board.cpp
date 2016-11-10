@@ -56,16 +56,13 @@ void Board::makePiece(Piece_Shapes piece) {
 	currentPiece =  new Piece(piece);
 }
 
-Piece * Board::getPiece() {
-	return currentPiece;
-}
-
 void Board::dropPiece() {
 	++pieceYPosition;
 	/*if (!isValid()) {
 		solidifyBoard();
 		makePiece();
 	}*/
+	updateBoard();
 }
 
 void Board::updateBoard() {

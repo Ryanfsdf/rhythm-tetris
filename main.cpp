@@ -15,6 +15,8 @@ int main() {
 		SDL_Delay(100);
 		checkEvent();
 		screen->updateScreen(tetrisBoard);
+		SDL_Delay(1000);
+		tetrisBoard->dropPiece();
 	}
 
 

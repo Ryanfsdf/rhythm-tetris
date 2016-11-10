@@ -30,11 +30,6 @@ Graphics::~Graphics() {
 
 #define test 0
 void Graphics::updateScreen(Board * tetrisBoard) {
-	Piece * currentPiece = tetrisBoard->getPiece();
-	int pieceXPosition = tetrisBoard->getPieceX();
-	int pieceYPosition = tetrisBoard->getPieceY();
-	int count = 0;
-
     for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
 			//std::cout << tetrisBoard->getBoardAt(x,y);

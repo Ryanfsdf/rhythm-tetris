@@ -27,7 +27,6 @@ public:
 	//no argument makes random piece
 	void makePiece();
 	void makePiece(Piece_Shapes piece);
-	Piece * getPiece();
 	void dropPiece();
 	void updateBoard();
 	void solidifyBoard();
