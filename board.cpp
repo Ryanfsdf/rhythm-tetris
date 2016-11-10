@@ -39,7 +39,7 @@ void Board::makePiece() {
 		delete currentPiece;
 	}
 
-	pieceXPosition = PLAY_WIDTH/2;
+	pieceXPosition = PLAY_WIDTH/2 - 1;
 	pieceYPosition = 2;
 
 	currentPiece =  new Piece(Piece_Shapes(rand() % 7));
@@ -51,7 +51,7 @@ void Board::makePiece(Piece_Shapes piece) {
 		delete currentPiece;
 	}
 
-	pieceXPosition = PLAY_WIDTH/2;
+	pieceXPosition = PLAY_WIDTH/2 - 1;
 	pieceYPosition = 2;
 
 	currentPiece =  new Piece(piece);
