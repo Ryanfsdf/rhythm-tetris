@@ -1,4 +1,8 @@
 #include "event.h"
+#include <fstream>
+#include <string>
+
+static int numClapMax = 0;
 
 void checkEvent(Board * tetrisBoard) {
 	SDL_Event event;
@@ -51,4 +55,18 @@ void checkEvent(Board * tetrisBoard) {
 			break;
 		}
 	}
+}
+
+void checkClap(Board *tetrisBoard) {
+	int numClap = 0;
+	std::ifstream file("SendToC");
+    std::string str; 
+    while (std::getline(file, str))
+    {
+        ++numClap;
+    }
+    if (numClap > numClapMax) {
+    	tetrisBoard->dropPieceFull();
+    	numClapMax = numClap;
+    }
 }

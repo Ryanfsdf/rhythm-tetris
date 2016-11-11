@@ -2,7 +2,6 @@
 #include <string>
 
 #include "event.h"
-#include "graphics.h"
 
 using namespace std;
 
@@ -17,6 +16,7 @@ int main() {
 		while(dropTimer < 15) {
 			SDL_Delay(50);
 			checkEvent(tetrisBoard);
+			checkClap(tetrisBoard);
 			screen->updateScreen(tetrisBoard);
 			++dropTimer;
 		}

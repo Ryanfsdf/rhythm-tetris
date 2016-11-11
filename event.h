@@ -4,5 +4,6 @@
 #include "graphics.h"
 
 void checkEvent(Board * tetrisBoard);
+void checkClap(Board * tetrisBoard);
 
 #endif
