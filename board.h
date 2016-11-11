@@ -24,6 +24,7 @@ public:
 	int getBoardAt(int x, int y);
 	int getPieceX();
 	int getPieceY();
+	void reset();
 	//no argument makes random piece
 	void makePiece();
 	void makePiece(Piece_Shapes piece);
@@ -32,6 +33,7 @@ public:
 	void rotatePiece();
 	void movePieceLeft();
 	void movePieceRight();
+	void cleanBoard();
 	void updateBoard();
 	void solidifyBoard();
 	bool isValid();

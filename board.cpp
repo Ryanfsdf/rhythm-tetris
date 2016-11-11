@@ -33,6 +33,13 @@ int Board::getPieceY() {
 	return pieceYPosition;
 }
 
+
+void Board::reset() {
+	cleanBoard();
+	makePiece();
+	updateBoard();
+}
+
 void Board::makePiece() {
 	//NULL
 	if (currentPiece != 0) {
@@ -111,10 +118,19 @@ void Board::movePieceRight() {
 	updateBoard();
 }
 
+void Board::cleanBoard() {
+	for (int y = 0; y < PLAY_HEIGHT; ++y) {
+		for (int x = 0; x < PLAY_WIDTH; ++x) {
+			board[y][x] = 0;
+		}
+	}
+}
+
 void Board::updateBoard() {
 	for (int y = 0; y < PLAY_HEIGHT; ++y) {
 		for (int x = 0; x < PLAY_WIDTH; ++x) {
-			if (board[y][x] == 2) {
+			//Removes all colors
+			if (board[y][x] >= 3) {
 				board[y][x] = 0;
 			}
 		}
@@ -127,7 +143,7 @@ void Board::updateBoard() {
 				if (((y + 2 - pieceYPosition) >= 0) && ((x + 2 - pieceXPosition) >= 0) &&
 					((y + 2 - pieceYPosition) <= 4) && ((x + 2 - pieceXPosition) <= 4) &&
 					(currentPiece->getPieceAt(x + 2 - pieceXPosition, y + 2 - pieceYPosition) == 1)) {
-					board[y][x] = 2;
+					board[y][x] = currentPiece->getColor();
 				}
 			}
 		}

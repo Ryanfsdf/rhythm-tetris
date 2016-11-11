@@ -8,6 +8,8 @@ using namespace std;
 
 int main() {
 	//Loads window and graphics
+	int hi;
+	std::cin >> hi;
 	Graphics * screen = new Graphics;
 	Board * tetrisBoard = new Board;
 

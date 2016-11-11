@@ -36,6 +36,10 @@ void checkEvent(Board * tetrisBoard) {
 						//
 					break;
 
+					case SDLK_r:
+						tetrisBoard->reset();
+					break;
+
 					default:
 						//
 					break;
