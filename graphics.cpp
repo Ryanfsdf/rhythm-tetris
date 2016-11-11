@@ -65,6 +65,7 @@ void Graphics::updateScreen(Board * tetrisBoard) {
 			else {
 				
 			}
+			
 			boxColor(render, WIDTH_PIXEL/PLAY_WIDTH * x, HEIGHT_PIXEL/PLAY_HEIGHT * y,
 					WIDTH_PIXEL/PLAY_WIDTH * (x + 1), HEIGHT_PIXEL/PLAY_HEIGHT * (y + 1), color);
 		}

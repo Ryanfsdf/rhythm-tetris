@@ -46,10 +46,6 @@ void checkEvent(Board * tetrisBoard) {
 				}
 			break;
 
-			case SDL_KEYUP:
-				//
-			break;
-
 			default:
 				//
 			break;
