@@ -14,7 +14,20 @@ C++ Dependencies:
  - SDL2-gfx
  
  
- Controls:
+GAME MODES:
+- Standard:
+  Standard game of Tetris
+- Clap 2 Drop:
+  Clapping or making sudden noises drops the pieces
+- Play 2 Music:
+  Pieces drop to the beat of your music
+- Louder and Faster:
+  Pieces drop faster depending on the loudness of the environment
+  
+ 
+Controls:
+
+ CLAP: Moves Piece Down (faster than autodrop)
  
  Left/Right Arrow Keys: Move Left/Right
  
