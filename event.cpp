@@ -59,7 +59,7 @@ void checkEvent(Board * tetrisBoard) {
 
 void checkClap(Board *tetrisBoard) {
 	int numClap = 0;
-	std::ifstream file("SendToC");
+	std::ifstream file("SendClapToC");
     std::string str; 
     while (std::getline(file, str))
     {

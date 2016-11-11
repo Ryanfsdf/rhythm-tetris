@@ -22,7 +22,7 @@ file = open("logRMS.txt","w")
 floorNoise = 0
 
 #Wipe file
-fileC = open("SendToC","w")
+fileC = open("SendClapToC","w")
 fileC.close()
 
 p = pyaudio.PyAudio()
@@ -79,11 +79,11 @@ for i in range(0, 48000 / chunk * RECORD_DURATION):
     threshold = (ampArray[0] + ampArray[1] + ampArray[2]) * 50 + \
         NOISE_FLOOR_BASE + floorNoise
 
-    #If a noise is above threshold, it is written to SendToC
+    #If a noise is above threshold, it is written to SendClapToC
     if (rms > threshold):
         print("Beat Detected")
         print(rms)
-        fileC = open("SendToC","a")
+        fileC = open("SendClapToC","a")
         fileC.write(str(numBeatTimes) + "\n")
         fileC.close()
         numBeatTimes += 1
