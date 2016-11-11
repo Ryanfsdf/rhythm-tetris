@@ -25,7 +25,7 @@ GAME MODES:
  
 Controls:
 
- CLAP: Moves Piece Down (faster than autodrop)
+ CLAP: Drop Piece All the Way
  
  Left/Right Arrow Keys: Move Left/Right
  
