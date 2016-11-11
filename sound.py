@@ -29,7 +29,7 @@ p = pyaudio.PyAudio()
 
 #PyAudio sometimes takes too long with the "open" call and there is a
 # large buffer buildup which causes an IOError when "read" is called.
-# I used the first "read" call as a tester to see if "open" took too 
+# I used the 3 "read" calls as a testers to see if "open" took too 
 # long or not.
 while(1):
     stream = p.open(format=FORMAT,
@@ -50,13 +50,14 @@ while(1):
 
 
 print("Setting Noise Cancellation Based on Background Noise")
-for i in range(5):
+NCSampleSize = 5;
+for i in range(NCSampleSize):
     try:
         data = (stream.read(chunk))
         floorNoise += audioop.rms(data, 2)
     except IOError:
         print("Noise Cancellation Setup Failed")
-floorNoise = floorNoise / 5
+floorNoise = floorNoise / NCSampleSize
 print("Noise Floor is:" + str(floorNoise))
 
 
@@ -72,8 +73,13 @@ for i in range(0, 48000 / chunk * RECORD_DURATION):
 
     rms = audioop.rms(data, 2)	    
 
+    #Threshold value depends on what kind of noise is made. To make sure
+    # only sudden, quick noises are detected, the code below guarantees
+    # that the noise was not gradually increased
     threshold = (ampArray[0] + ampArray[1] + ampArray[2]) * 50 + \
-    NOISE_FLOOR_BASE + floorNoise
+        NOISE_FLOOR_BASE + floorNoise
+
+    #If a noise is above threshold, it is written to SendToC
     if (rms > threshold):
         print("Beat Detected")
         print(rms)

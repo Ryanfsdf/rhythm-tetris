@@ -10,13 +10,18 @@ int main() {
 	Graphics * screen = new Graphics;
 	Board * tetrisBoard = new Board;
 
+	bool isClapEnabled = false;
+	bool isLoudFasterEnabled = false;
+
 	while(1) {
 		int dropTimer = 0;
 		//Change loop to determine how fast pieces drop
 		while(dropTimer < 15) {
 			SDL_Delay(50);
 			checkEvent(tetrisBoard);
-			checkClap(tetrisBoard);
+			if (isClapEnabled) {
+				checkClap(tetrisBoard);
+			}
 			screen->updateScreen(tetrisBoard);
 			++dropTimer;
 		}
