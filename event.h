@@ -5,5 +5,6 @@
 
 void checkEvent(Board * tetrisBoard);
 void checkClap(Board * tetrisBoard);
+int getLoudness(Board * tetrisBoard);
 
 #endif

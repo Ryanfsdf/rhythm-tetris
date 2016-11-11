@@ -11,19 +11,24 @@ int main() {
 	Board * tetrisBoard = new Board;
 
 	bool isClapEnabled = false;
-	bool isLoudFasterEnabled = false;
+	bool isLoudFasterEnabled = true;
 
 	while(1) {
-		int dropTimer = 0;
-		//Change loop to determine how fast pieces drop
-		while(dropTimer < 15) {
+		int dropLoop = 0;
+		int dropTimer = 15;
+
+		//Change dropTimer to determine how fast pieces drop
+		while(dropLoop < dropTimer) {
 			SDL_Delay(50);
 			checkEvent(tetrisBoard);
 			if (isClapEnabled) {
 				checkClap(tetrisBoard);
 			}
+			if (isLoudFasterEnabled) {
+				dropTimer = 15 - getLoudness(tetrisBoard)/10;
+			}
 			screen->updateScreen(tetrisBoard);
-			++dropTimer;
+			++dropLoop;
 		}
 		tetrisBoard->dropPiece();
 	}

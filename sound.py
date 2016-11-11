@@ -24,6 +24,8 @@ floorNoise = 0
 #Wipe file
 fileC = open("SendClapToC","w")
 fileC.close()
+fileL = open("SendAmpToC","a")
+fileL.close()
 
 p = pyaudio.PyAudio()
 
@@ -71,7 +73,12 @@ for i in range(0, 48000 / chunk * RECORD_DURATION):
     except IOError:
         print("Frames were lost")
 
-    rms = audioop.rms(data, 2)	    
+    rms = audioop.rms(data, 2)
+
+    #File with current amplitude
+    fileL = open("SendAmpToC","w")
+    fileL.write(str(rms)+ "\n")
+    fileL.close()
 
     #Threshold value depends on what kind of noise is made. To make sure
     # only sudden, quick noises are detected, the code below guarantees

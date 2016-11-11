@@ -70,3 +70,11 @@ void checkClap(Board *tetrisBoard) {
     	numClapMax = numClap;
     }
 }
+
+int getLoudness(Board *tetrisBoard) {
+	std::ifstream file("SendAmpToC");
+    std::string str; 
+    std::getline(file,str);
+    return atoi(str.c_str());
+
+}
