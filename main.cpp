@@ -10,7 +10,7 @@ int main() {
 	Graphics * screen = new Graphics;
 	Board * tetrisBoard = new Board;
 
-	bool isClapEnabled = false;
+	bool isClapEnabled = true;
 	bool isLoudFasterEnabled = true;
 
 	while(1) {

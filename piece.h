@@ -2,15 +2,15 @@
 #define PIECE_H
 
 //must change the arrays if you change the piece size
-#define PIECE_SIZE 5
+const int PIECE_SIZE = 5;
 
-#define LIME 3
-#define RED 4
-#define TEAL 5
-#define PURPLE 6
-#define YELLOW 7
-#define ORANGE 8
-#define BLUE 9
+const int LIME  = 3;
+const int RED = 4;
+const int TEAL = 5;
+const int PURPLE = 6;
+const int YELLOW = 7;
+const int ORANGE = 8;
+const int BLUE = 9;
 
 enum Piece_Shapes {
 	S_SHAPE,

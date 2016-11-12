@@ -2,11 +2,11 @@
 
 #define PROGRAM_TITLE "Rhythm Tetris"
 	
-#define PLAY_HEIGHT 20
-#define PLAY_WIDTH 10
+const int PLAY_HEIGHT = 20;
+const int PLAY_WIDTH = 10;
 
-#define HEIGHT_PIXEL 600
-#define WIDTH_PIXEL 300
+const int HEIGHT_PIXEL = 600;
+const int WIDTH_PIXEL = 300;
 
 class Board {
 private:
