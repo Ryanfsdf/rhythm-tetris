@@ -50,6 +50,11 @@ void Board::makePiece() {
 	pieceYPosition = 2;
 
 	currentPiece =  new Piece(Piece_Shapes(rand() % 7));
+
+	//Game Lost
+	if (!isValid()) {
+		reset();
+	}
 }
 
 void Board::makePiece(Piece_Shapes piece) {
@@ -62,6 +67,11 @@ void Board::makePiece(Piece_Shapes piece) {
 	pieceYPosition = 2;
 
 	currentPiece =  new Piece(piece);
+
+	//Game Lost
+	if (!isValid()) {
+		reset();
+	}
 }
 
 void Board::dropPiece() {
