@@ -6,7 +6,7 @@ Or your own music files! Made with C++ / Python2.7
 Python Modules:
  - PyAudio
 
-C++ Dependencies:
+Dependencies:
  - PortAudio
  - SDL2
  - SDL2-gfx
