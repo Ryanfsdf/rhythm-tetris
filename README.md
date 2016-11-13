@@ -18,14 +18,14 @@ GAME MODES:
 - Clap 2 Drop:
   Clapping or making sudden noises drops the pieces
 - Play 2 Music:
-  Pieces drop to the beat of your music
+  Pieces drop to the beat of music (from file)
 - Louder and Faster:
   Pieces drop faster depending on the loudness of the environment
   
  
 Controls:
 
- CLAP: Drop Piece All the Way
+ CLAP: Instantly Drop Piece
  
  Left/Right Arrow Keys: Move Left/Right
  
@@ -33,6 +33,6 @@ Controls:
  
  Down Array Key: Move Piece Down (faster than autodrop)
  
- Space Key: Drop Piece All the Way
+ Space Key: Instantly Drop Piece
  
  R Key: Resets the Game
