@@ -1,7 +1,7 @@
 # Rhythm Tetris
 
 Tetris with pieces that drop to your claps!
-Or your own music files! Made with C++ / Python2.7
+Or to the beat of your own music files! Made with C++ / Python2.7
 
 Python Modules:
  - PyAudio
