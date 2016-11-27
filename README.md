@@ -11,6 +11,14 @@ Dependencies:
  - SDL2
  - SDL2-gfx
  
+Ubuntu/Linux Mint:
+<pre>
+sudo apt-get install portaudio19-dev
+sudo apt-get install python-pyaudio
+sudo apt-get install build-essential
+sudo apt-get install libsdl2-dev
+sudo apt-get install libsdl2-gfx-dev
+</pre>
  
 GAME MODES:
 - Standard:
