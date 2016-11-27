@@ -23,11 +23,11 @@ sudo apt-get install libsdl2-gfx-dev
 GAME MODES:
 - Standard:
   Standard game of Tetris
-- Clap 2 Drop:
+- With Clap:
   Clapping or making sudden noises drops the pieces
-- Play 2 Music:
+- With Music:
   Pieces drop to the beat of music (from file)
-- Louder and Faster:
+- With Environment:
   Pieces drop faster depending on the loudness of the environment
   
  
