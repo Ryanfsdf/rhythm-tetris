@@ -1,7 +1,7 @@
 # Rhythm Tetris
 
 Tetris with pieces that drop to your claps!
-Or your own music files! Made with C++ / Python2.7
+Or to the beat of your own music files! Made with C++ / Python2.7
 
 Python Modules:
  - PyAudio
@@ -11,21 +11,29 @@ Dependencies:
  - SDL2
  - SDL2-gfx
  
+Ubuntu/Linux Mint:
+<pre>
+sudo apt-get install portaudio19-dev
+sudo apt-get install python-pyaudio
+sudo apt-get install build-essential
+sudo apt-get install libsdl2-dev
+sudo apt-get install libsdl2-gfx-dev
+</pre>
  
 GAME MODES:
 - Standard:
   Standard game of Tetris
-- Clap 2 Drop:
+- With Clap:
   Clapping or making sudden noises drops the pieces
-- Play 2 Music:
-  Pieces drop to the beat of your music
-- Louder and Faster:
+- With Music:
+  Pieces drop to the beat of music (from file)
+- With Environment:
   Pieces drop faster depending on the loudness of the environment
   
  
 Controls:
 
- CLAP: Drop Piece All the Way
+ CLAP: Instantly Drop Piece
  
  Left/Right Arrow Keys: Move Left/Right
  
@@ -33,6 +41,6 @@ Controls:
  
  Down Array Key: Move Piece Down (faster than autodrop)
  
- Space Key: Drop Piece All the Way
+ Space Key: Instantly Drop Piece
  
  R Key: Resets the Game
